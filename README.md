@@ -45,7 +45,11 @@ mvn spring-boot:run -pl 'zhacker-gateway-admin'
 6. 访问页面
 
 * 访问应用示例
+![admin-default](doc/image/admin-default.png)
 * 点击登录按钮，跳转到认证中心
 * 输入用户名和密码（admin/123456）
+![oauth-login](doc/image/oauth-login.png)
 * 跳转到授权页面进行授权
+![oauth-authorize](doc/image/oauth-authorize.png)
 * 跳转回应用首页
+![admin-logined](doc/image/admin-logined.png)
