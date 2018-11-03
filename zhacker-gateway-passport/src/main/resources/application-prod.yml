@@ -1,0 +1,32 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:/tmp/passportdb;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    continue-on-error: false
+    initialization-mode: always
+    initialize: true
+    data: classpath:data.sql
+  redis:
+    host: localhost
+    port: 6379
+  session:
+    store-type: redis
+merryyou:
+  security:
+    code:
+      image:
+        width: 90
+        height: 20
+        length: 4
+        expireIn: 30
+        url: /code/*
+    session:
+      maximumSessions: 1
+      maxSessionsPreventsLogin: false
+#      sessionInvalidUrl : /merryyou-session-invalid.html
+    loginType: JSON
