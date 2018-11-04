@@ -21,7 +21,8 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
     private JdbcTemplate jdbcTemplate;
  
     private ZuulProperties properties;
- 
+
+
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -72,6 +73,9 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
  
     private Map<String, ZuulProperties.ZuulRoute> locateRoutesFromDB() {
         Map<String, ZuulProperties.ZuulRoute> routes = new LinkedHashMap<>();
+        if(jdbcTemplate==null){
+            return routes;
+        }
         List<ZuulRouteVO> results = jdbcTemplate.query("select * from gateway_api_define where enabled = true ", new
                 BeanPropertyRowMapper<>(ZuulRouteVO.class));
         for (ZuulRouteVO result : results) {

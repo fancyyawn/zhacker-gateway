@@ -1,7 +1,5 @@
 server.port: 14000
 
-#spring.application.name: zhacker-gateway
-
 #security.user.password: password
 logging.level.org.springframework.security: DEBUG
 
@@ -12,7 +10,7 @@ spring:
     console:
       enabled: true
   datasource:
-    url: jdbc:h2:/tmp/gateway-route;MODE=MySQL
+    url: jdbc:h2:/tmp/gatewaydb;MODE=MySQL
     driver-class-name: org.h2.Driver
     username: sa
     password:
@@ -52,6 +50,7 @@ eureka:
     prefer-ip-address: true
 
 zuul.groovy.path: /tmp/groovy-filter/
+
 
 #spring.datasource.url: jdbc:mysql://127.0.0.1:3306/gateway?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
 #spring.datasource.username: root
