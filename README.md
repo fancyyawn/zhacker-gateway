@@ -42,7 +42,20 @@ mvn spring-boot:run -pl 'zhacker-gateway-route'
 mvn spring-boot:run -pl 'zhacker-gateway-admin'
 ```
 
-6. 访问页面
+6. 下载并启动商品微服务
+
+``` 
+git clone https://github.com/fancyyawn/zhacker-framework.git
+cd zhacker-framework
+mvn clean install -Dmaven.test.skip
+
+git clone https://github.com/fancyyawn/zhack-sample-ddd-spu.git
+cd zhack-sample-ddd-spu
+mvn spring-boot:run
+```
+
+
+7. 访问页面
 
 * 访问应用示例
 ![admin-default](doc/image/admin-default.png)
@@ -52,4 +65,5 @@ mvn spring-boot:run -pl 'zhacker-gateway-admin'
 * 跳转到授权页面进行授权
 ![oauth-authorize](doc/image/oauth-authorize.png)
 * 跳转回应用首页
-![admin-logined](doc/image/admin-logined.png)
+* 通过页面访问后端的服务
+![admin-logined](doc/image/home-logined.png)
