@@ -1,16 +1,20 @@
 <h1>Greeting</h1>
 <div ng-show="authenticated">
-	<p>The ID is {{controller.greeting.id}}</p>
-	<p>The content is {{controller.greeting.content}}</p>
-	<ul>
-		<li><a href="" ng-click="controller.directRestInvoke()">directRestInvoke</a></li>
-		<li><a href="" ng-click="controller.gateRestInvoke()">gateRestInvoke</a></li>
-		<li><a href="" ng-click="controller.gateDubboInvoke()">gateDubboInvoke</a></li>
-		<li><a href="" ng-click="controller.clientRestInvoke()">clientRestInvoke</a></li>
-		<li><a href="" ng-click="controller.clientDubboInvoke()">clientDubboInvoke</a></li>
-	</ul>
-	<p><a href="" ng-click="controller.fooWrite()">Foo write</a></p>
-	<p>The user info is {{controller.userinfo}}</p>
+
+	<h2>The User Info</h2>
+	<p>{{controller.userinfo}}</p>
+
+	<h2>http invoke</h2>
+
+	<button ng-click="controller.httpInvoke()">invoke</button>
+	method: <input type="text" name="httpMethod" ng-model="httpMethod" placeholder="http method"/>
+	url: <input type="text" name="invokeUrl" ng-model="invokeUrl" size="100" placeholder="url"/>
+	<br/>
+	<h4>http request body</h4>
+	<textarea name="httpBody" ng-model="httpBody" rows="5" cols="100"></textarea>
+	<br/>
+	<h2>http response body</h2>
+	<textarea name="httpResponse" ng-model="httpResponse" rows="8" cols="100"></textarea>
 
 </div>
 <div  ng-show="!authenticated">
