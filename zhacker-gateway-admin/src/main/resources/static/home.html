@@ -7,9 +7,9 @@
 	<h2>http invoke</h2>
 
 	<ul>
-		<li>调用admin的服务：http://localhost:12000/gw/retail-spu/v1/unit/list?shopId=1</li>
-		<li>调用route的服务：http://localhost:14000/retail-spu/v1/unit/list?shopId=1</li>
-		<li>直接调用服务本身：http://localhost:9001/v1/unit/list?shopId=1</li>
+		<li>通过ajax调用admin的服务，也可通过浏览器直接调用：http://localhost:12000/gw/retail-spu/v1/unit/list?shopId=1</li>
+		<li>通过ajax调用route的服务，不可通过浏览器直接调用，会报无权限访问：http://localhost:14000/retail-spu/v1/unit/list?shopId=1</li>
+		<li>通过浏览器直接调用服务本身(不需要认证)，不可通过ajax调用，会报cors：http://localhost:9001/v1/unit/list?shopId=1</li>
 	</ul>
 
 	<button ng-click="controller.httpInvoke()">invoke</button>
