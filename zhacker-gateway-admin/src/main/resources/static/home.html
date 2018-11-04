@@ -6,6 +6,12 @@
 
 	<h2>http invoke</h2>
 
+	<ul>
+		<li>调用admin的服务：http://localhost:12000/gw/retail-spu/v1/unit/list?shopId=1</li>
+		<li>调用route的服务：http://localhost:14000/retail-spu/v1/unit/list?shopId=1</li>
+		<li>直接调用服务本身：http://localhost:9001/v1/unit/list?shopId=1</li>
+	</ul>
+
 	<button ng-click="controller.httpInvoke()">invoke</button>
 	method: <input type="text" name="httpMethod" ng-model="httpMethod" placeholder="http method"/>
 	url: <input type="text" name="invokeUrl" ng-model="invokeUrl" size="100" placeholder="url"/>

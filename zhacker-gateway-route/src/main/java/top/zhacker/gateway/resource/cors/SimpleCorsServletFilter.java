@@ -32,18 +32,28 @@ public class SimpleCorsServletFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpServletRequest request = (HttpServletRequest) req;
-        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-        response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Headers", "x-requested-with, authorization, content-type, source");
-        
-        
+
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-            if(Strings.isNullOrEmpty(response.getHeader("Access-Control-Allow-Origin"))){
-                response.setHeader("Access-Control-Allow-Origin", "*");
-            }
+            setCorsHeaders(response);
             response.setStatus(HttpServletResponse.SC_OK);
         } else {
             chain.doFilter(req, res);
+            setCorsHeaders(response);
+        }
+    }
+
+    private void setCorsHeaders(HttpServletResponse response){
+        if(Strings.isNullOrEmpty(response.getHeader("Access-Control-Allow-Origin"))){
+            response.setHeader("Access-Control-Allow-Origin", "*");
+        }
+        if(Strings.isNullOrEmpty(response.getHeader("Access-Control-Max-Age"))){
+            response.setHeader("Access-Control-Max-Age", "3600");
+        }
+        if(Strings.isNullOrEmpty(response.getHeader("Access-Control-Allow-Methods"))) {
+            response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        }
+        if(Strings.isNullOrEmpty(response.getHeader("Access-Control-Allow-Headers"))) {
+            response.setHeader("Access-Control-Allow-Headers", "x-requested-with, authorization, content-type, source");
         }
     }
 
